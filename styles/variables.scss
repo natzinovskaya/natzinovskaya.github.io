@@ -1,0 +1,31 @@
+$black: #282828;
+$gray: #8a8a8a;
+$pink: #ff6d6d;
+$blue: #323969;
+
+@mixin text ($fontfamily, $fontsize, $color, $lineheight, $fontweight) {
+  font-family: $fontfamily;
+  font-size: $fontsize;
+  color: $color;
+  line-height: $lineheight;
+  font-weight: $fontweight;
+}
+
+@mixin w-h ($width, $height) {
+  width: $width;
+  min-height: $height;
+}
+
+@mixin flex ($displayflex, $flexdirection, $justify, $alignit) {
+  display: $displayflex;
+  flex-direction: $flexdirection;
+  justify-content: $justify;
+  align-items: $alignit;
+}
+
+@mixin btn ($border, $radius, $backgroundcolor, $cursor) {
+  border: $border;
+  border-radius: $radius;
+  background-color: $backgroundcolor;
+  cursor: $cursor;
+}

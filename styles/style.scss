@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:100,400,500');
+@import "variables.scss";
+
+.hidden-menu__wrapper {
+  display: none;
+}
+  .hidden-menu__list {
+  display: block;
+  position: fixed;
+  padding: 10px;
+  margin: 0;
+  width: 200px;
+  background-color: #ecedf2;
+  transition: left 0.4s; /*Замедление выдвижения слева*/
+  left: -200px; /*Скрыть меню слева*/
+  z-index: 2;
+}
+.hidden-menu__link {
+  @extend .navbar__link;
+}
+.hidden-menu__list-ticker {
+  display: none;  /*Скрыть checkbox*/
+}
+.hidden-menu__button { /*Положение кнопки*/
+  padding: 5px;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  transition: left .23s;
+  z-index: 3;
+  width: 35px;
+}
+.hidden-menu__button span { /*Редактировать вид общего span, как дочернего hidden-menu__button*/
+  display: block;
+  height: 5px;
+  background-color: #626d80;
+  margin: 5px 0 0;
+  position: relative;
+}
+.hidden-menu__list-ticker:checked ~ .hidden-menu__button{ /*При нажатии определяет, на сколько изображение меню сдвинется влево*/
+  left: 160px;
+}
+.hidden-menu__list-ticker:checked ~ .hidden-menu__list {
+  left: 0;
+}
+.hidden-menu__list-ticker:checked ~ .hidden-menu__button .hidden-menu__first-line {
+  transform: rotate(45deg);
+  top: 10px;
+}
+.hidden-menu__list-ticker:checked ~ .hidden-menu__button .hidden-menu__second-line { /*При нажатии скрывает среднюю линию*/
+  opacity: 0;
+}
+.hidden-menu__list-ticker:checked ~ .hidden-menu__button .hidden-menu__third-line {
+  transform: rotate(-45deg);
+  top: -10px;
+}
+.navbar {
+  @include w-h(100%, 50px);
+  background-image: linear-gradient(#9ea1b0, #f5f5f7);
+  position: fixed;
+  z-index: 2;
+}
+.navbar__link {
+  @include text(Exo, 16px, $black, none, 400);
+  padding: 5px 12px;
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+      font-weight: 800;
+      transition: 0.3s;
+      @include btn(2px solid $blue, 4px, none, pointer);
+    }
+    &:first-child {
+      @include btn(2px solid $blue, 4px, none, pointer);
+      color: $blue;
+    }
+}
+.header {
+  @include w-h(100%, 750px);
+  background: url(../images/headerimg.png) center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.header__title_black {
+  @include text(Exo, 50px, $black, 1.2em, 100);
+  @include w-h(55%, 290px);
+  @include flex(flex, column, center, center);
+  padding-top: 40px;
+  margin: 0 auto;
+  text-align: center;
+}
+.header__button-wrapper {
+  @include flex(flex, column, center, center);
+}
+.header__button_pink {
+  @include btn(none, 4px, $pink, pointer);
+  @include w-h(150px, auto);
+  @include text(Exo, 15px, white, 2.5em, 400);
+  text-transform: uppercase;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: $blue;
+      transition: 0.4s;
+    }
+}
+.header__subtext_gray {
+  @include text(Exo, 13px, $gray, 3em, 400);
+  @include flex(flex, column, center, center);
+}
+.services-block {
+  @include w-h(100%, 635px);
+  background: url(../images/bkgd1.png) center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.services-block__wrapper {
+  @include w-h(100%, 600px);
+  @include flex(flex, column, center, none);
+}
+.services-block__subtitle_pink {
+  @include text(Exo, 16px, $pink, 3em, 400);
+  text-transform: uppercase;
+}
+.services-block__title_black {
+  @include text(Exo, 40px, $black, 1.3em, 500);
+  padding-bottom: 30px;
+}
+.services-block__dots_pink {
+  color: $pink;
+}
+.services-block__text-first_gray {
+  @include text(Exo, 16px, $gray, 1.5em, 400);
+  padding-bottom: 20px;
+}
+.services-block__text-second_gray {
+  @include text(Exo, 16px, $gray, 1.5em, 400);
+}
+.features-block {
+  @include w-h(100%, 620px);
+  background: url(../images/BG.png) center no-repeat;
+  background-size: cover;
+}
+.features-block__title-wrapper {
+  text-align: center;
+  padding-top: 70px;
+}
+.features-block__subtitle_pink {
+  @include text(Exo, 16px, $pink, 2em, 400);
+}
+.features-block__title_black {
+  @include text(Exo, 40px, $black, 1.3em, 500);
+}
+.features-box__content-wrapper {
+  @include w-h(100%, 400px);
+  @include flex(flex, column, center, center);
+}
+.features-box__title_black {
+  @include text(Exo, 22px, $black, 3em, 500);
+}
+.features-box__text_gray {
+  @include text(Exo, 16px, $gray, 1.5em, 400);
+  text-align: center;
+}
+.design-block {
+  @include w-h(100%, 450px);
+  background: url(../images/bkgd2.png) center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.design-block__laptop-image {
+  @include w-h(100%, auto);
+  padding-top: 50px;
+}
+.design-block__text-wrapper {
+  @include w-h(100%, 300px);
+  @include flex(flex, column, space-around, none);
+  padding-top: 60px;
+}
+.design-block__subtitle_pink {
+  @include text(Exo, 16px, $pink, 3em, 400);
+  text-transform: uppercase;
+}
+.design-block__title_black {
+  @include text(Exo, 40px, $black, 1.3em, 500);
+  padding-bottom: 20px;
+}
+.design-block__dots_pink {
+  color: $pink;
+}
+.design-block__text_gray {
+  @include text(Exo, 16px, $gray, 1.5em, 400);
+}
+.about-block {
+  @include w-h(100%, 580px);
+  background: url(../images/BGblack.png) center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.about-block__wrapper-text {
+  @include flex(flex, column, none, center);
+  text-align: center;
+  padding-top: 40px;
+}
+.about-block__photo {
+  @include w-h(150px, 150px);
+  border-radius: 75px;
+  margin-bottom: 20px;
+  border: 2px solid $gray;
+}
+.about-block__name-text_white {
+  @include text(Exo, 22px, white, 2em, 400);
+}
+.about-block__career-text_pink {
+  @include text(Exo, 16px, $pink, 1.5em, 400);
+}
+.about-block__text_italic {
+  @include text(Exo, 16px, #b7b7b8, 1.5em, 400);
+  padding-top: 30px;
+  font-style: italic;
+}
+.about-block-carousel {
+  margin-top: 40px;
+}
+.about-block-carousel__image {
+  padding: 0 30px 0 30px;
+}
+.blog {
+  @include w-h(100%, 580px);
+  background-color: #f6f5f3;
+}
+.blog__wrapper-text {
+  @include flex(flex, column, none, center);
+  text-align: center;
+  padding-top: 60px;
+}
+.blog__subtitle_pink {
+  @include text(Exo, 16px, $pink, 2em, 400);
+  text-transform: uppercase;
+}
+.blog__title_black {
+  @include text(Exo, 40px, $black, 1em, 500);
+  padding-bottom: 20px;
+}
+.blog__text_gray {
+  @include text(Exo, 16px, $gray, 1.5em, 400);
+  width: 65%;
+}
+.blog__image {
+  width: 700px;
+  padding-top: 40px;
+}
+.registry-block_blue {
+  @include w-h(100%, 400px);
+  background-color: $blue;
+}
+.registry-block__wrapper-text {
+  @include flex(flex, column, none, center);
+  text-align: center;
+  padding-top: 60px;
+}
+.registry-block__subtitle_pink {
+  @include text(Exo, 16px, $pink, 2em, 400);
+  text-transform: uppercase;
+}
+.registry-block__title_white {
+  @include text(Exo, 40px, white, 1.5em, 500);
+  padding-bottom: 20px;
+}
+.registry-block__form {
+  @include flex(flex, row, center, flex-end);
+  @include w-h(100%, 110px);
+  position: relative;
+}
+.registry-block__input {
+  @include btn(1px solid #999cb4, 2px, #464c77, pointer);
+  @include w-h(100%, 40px);
+  @include text(Exo, 16px, white, none, 100);
+  padding-left: 10px;
+  margin-top: 52px;
+    &:focus {
+    outline: 2px solid white;
+  }
+    &::-webkit-input-placeholder {
+      @include text(Exo, 16px, #f6f5f3, none, 100);
+      text-transform: uppercase;
+    }
+}
+.registry-block__button_pink {
+  @extend .header__button_pink;
+  @include w-h(100%, 40px);
+  &:hover {
+    background-color: $gray;
+    transition: 0.4s;
+  }
+}
+.registry-block__above-button-wrapper {
+  @include flex(flex, row, none, none);
+  padding-bottom: 10px;
+}
+.registry-block__text-above-button {
+  @include text(Exo, 16px, white, none, 100);
+  padding-bottom: 10px;
+}
+.registry-block__wrapper-subtext {
+  @include flex(flex, row, center, center);
+  margin-top: 40px;
+}
+.registry-block__subtext_white {
+  @include text(Exo, 16px, white, none, 100);
+}
+.registry-block__subtext-link {
+  color: inherit;
+  text-decoration: underline;
+    &:hover {
+      color: inherit;
+    }
+}
+.footer {
+  @include w-h(100%, 300px);
+  background: url(../images/bkgd3.png) center no-repeat;
+  background-size: cover;
+}
+.footer__adres-block-image {
+  padding-top: 50px;
+}
+.footer__adres-block-text_gray {
+  @include text(Exo, 16px, #9e9e9e, 2em, 400);
+}
+.footer__adres-block-phone-number {
+  @extend .registry-block__subtext-link;
+  text-decoration: none;
+}
+.footer__support-block-title_black {
+  @include text(Exo, 22px, $black, 2em, 500);
+  padding-top: 45px;
+}
+.footer__support-link_gray {
+  @include text(Exo, 16px, $gray, 3em, 400);
+  display: block;
+   &:hover {
+     color: $blue;
+     font-weight: 500;
+     text-decoration: none;
+   }
+}
+.footer__about-block-title_black {
+  @extend .footer__support-block-title_black;
+}
+.footer__about-link_gray {
+  @extend .footer__support-link_gray;
+}
+.footer__form {
+  position: relative;
+}
+.footer__input-block-title_black {
+  @extend .footer__support-block-title_black;
+}
+.footer__input {
+ @include btn(1px solid #b8b8bf, 2px, #f6f6f6, pointer);
+ @include w-h(80%, 40px);
+ @include text(Exo, 16px, black, none, 400);
+ padding-left: 10px;
+ margin-top: 20px;
+   &:focus {
+   outline: 2px solid $pink;
+ }
+   &::-webkit-input-placeholder {
+     @include text(Exo, 16px, $black, none, 100);
+     text-transform: uppercase;
+   }
+}
+.footer__button_pink {
+  background: url(../images/btn.png) center no-repeat;
+  @include btn(none, 2px, $pink, pointer);
+  @include w-h(40px, 40px);
+  position: absolute;
+  top: 20px;
+   &:focus {
+   outline: none;
+ }
+  &:hover {
+    background-color: $blue;
+    transition: 0.3s;
+  }
+}
+.footer__social-link-wrapper {
+  @include w-h(80%, 75px);
+  @include flex(flex, row, space-around, center);
+  margin: 0 auto;
+}
+.footer__social-link-img {
+  width: 25px;
+}
+.footer__social-link-img-facebook {
+  height: 30px;
+}
